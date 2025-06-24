@@ -48,7 +48,7 @@ To detect football players in a video and re-identify them consistently using a 
 ---
 
 ## 🧩  Future Work
-
+If given more time:
 - Add player heatmaps and movement trails
 - Export CSV with player statistics (e.g., time on field)
 - Implement team classification via jersey color clustering
