@@ -1,78 +1,73 @@
-# Player_Re-identification-using-Computer-Vision
 
-# 🏃‍♂️ Football Player Detection and Re-Identification
+# 📑 Project Report: Football Player Detection and Re-Identification
 
-This project detects football players in a video using a custom-trained YOLO model and tracks them with consistent Player IDs using DeepSORT. It ensures that players who temporarily leave the frame are re-identified correctly when they reappear.
-
----
-
-## 🎯 Project Objective
-
-- 🎥 Input: A 15-second football video (`15sec_input_720p.mp4`)
-- 🧠 Detect each player using a custom YOLOv8 model
-- 🏷️ Assign a unique Player ID
-- 🔁 Maintain the same ID even after occlusion or re-entry
-- 💾 Output: An annotated video (`output_player_tracking.mp4`) with bounding boxes and player labels
+## 🎯 Objective
+To detect football players in a video and re-identify them consistently using a YOLOv8 model and DeepSORT tracking. Players should maintain the same ID even after leaving and re-entering the frame.
 
 ---
 
-## 🛠️ Tech Stack
+## 🧠 Approach & Methodology
 
-| Component         | Technology              |
-|------------------|--------------------------|
-| Object Detection | YOLOv8 (`best.pt`)       |
-| Tracking         | DeepSORT                 |
-| Video Handling   | OpenCV                   |
-| Programming      | Python                   |
-| Output Format    | MP4 video with overlays  |
+### 1. **Model Setup**
+- Used a **custom-trained YOLOv8 model (`best.pt`)** trained to detect football players.
+- Integrated with **DeepSORT** for multi-object tracking and consistent identity assignment.
+
+### 2. **Player Detection**
+- The YOLO model detects players frame-by-frame.
+- Only detections with high confidence (e.g., > 0.5) and class ID matching "player" are accepted.
+
+### 3. **Player Re-identification**
+- DeepSORT tracks players using spatial and appearance features.
+- IDs are preserved across frames, even when players are temporarily occluded or exit the scene.
 
 ---
 
-## 🧪 Setup Instructions
+## 🧪 Techniques Tried
 
-1. **Install Requirements**
-   ```bash
-   pip install ultralytics deep_sort_realtime opencv-python-headless
-2. Place Files in Working Directory
+| Technique        | Outcome |
+|------------------|---------|
+| YOLOv8           | High accuracy player detection |
+| DeepSORT         | Reliable tracking and re-identification |
+| Confidence Filtering | Reduced false detections |
+| Bounding Box Debugging | Validated class indexes from model output |
 
-   best.pt – your trained YOLOv8 model for football players
+---
 
-   15sec_input_720p.mp4 – input video
+## 🚧 Challenges Encountered
 
-3. Run the Notebook
+- Initially, the model detected footballs instead of players. Root cause: class filtering.
+- DeepSORT sometimes reassigned IDs during long occlusions. Solution: increased `max_age` and tuned `nn_budget`.
 
-   Open player_detection_updated.ipynb
+---
 
-   Execute all cells
+## ⏱️ Efficiency
 
-4. Output
+- Real-time capable on GPU (15 FPS+)
+- Optimized inference using batch processing in YOLO (where applicable)
 
-   The annotated video will be saved as:
+---
 
-       output_player_tracking.mp4
-   
-# 📦 File Structure
+## 🧩  Future Work
 
-bash
-Copy
-Edit
-📁 project/
-│
-├── player_detection_updated.ipynb   # Final working notebook
-├── best.pt                          # Trained YOLOv8 model (for player detection)
-├── 15sec_input_720p.mp4             # Input football video
-├── output_player_tracking.mp4       # Output video with player IDs
-└── README.md                        # Project overview
+- Add player heatmaps and movement trails
+- Export CSV with player statistics (e.g., time on field)
+- Implement team classification via jersey color clustering
+- Add goal or possession event detection
 
-🔍 Sample Output Preview
+---
 
-Each player is detected with a bounding box
+## ✅ Final Deliverables
 
-IDs remain the same across occlusions and re-entries
+- 📁 `player_detection_updated.ipynb`: Complete source code
+- 🧠 `best.pt`: Custom YOLO model for player detection
+- 🎥 `15sec_input_720p.mp4`: Input video
+- 📦 `output_player_tracking.mp4`: Tracked video with consistent player IDs
+- 📄 `README.md`: Instructions and overview
+- 📑 `report.md`: This document
 
-# 🤝 Acknowledgments
-Ultralytics YOLO
+---
 
-DeepSORT
-
-
+## 📬 Author
+Arunachalam  
+_B.Tech in AI & Data Science_  
+📧 phoenixdark318@gmail.com
