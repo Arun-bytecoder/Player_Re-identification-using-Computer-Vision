@@ -69,6 +69,6 @@ If given more time:
 ---
 
 ## 📬 Author
-**Arun Phoenix**  
+Arunachalam 
 _B.Tech in AI & Data Science_  
-📧 [YourEmail@example.com]
+📧 phoenixdark318@gmail.com
