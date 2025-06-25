@@ -90,7 +90,7 @@ Arunachalam
 
 B.Tech in AI & Data Science
 
-phoenixadrk318@gmail.com
+phoenixdark318@gmail.com
 
 
 
